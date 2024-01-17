@@ -6,5 +6,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "check_state=$( grep -q Luca README.md && echo "true" || echo "false" )" >> "$GITHUB_ENV"
-      - if: ${{ ! $check_state }}
+      - if: ${{ ! "$check_state" }}
         run: exit 1
