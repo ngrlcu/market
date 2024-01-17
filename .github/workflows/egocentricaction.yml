@@ -5,6 +5,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: grep -q Luca README.md | COMMAND "check_state=$(cat -)" >> "$GITHUB_ENV"
+      - run: COMMAND "check_state=$( grep -q "Luca" "README.md" )" >> "$GITHUB_ENV"
       - if: ${{ ! $check_state }}
         run: exit 1
