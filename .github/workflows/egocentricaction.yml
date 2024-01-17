@@ -7,4 +7,4 @@ jobs:
     steps:
       - name: Check name in README
         run: |
-          grep -q "Luca" README.md
+          grep -q "Luca" ../../README.md
