@@ -5,10 +5,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Check for my name in README
-        id: check_name
-        run: grep -q Luca README.md >> $GITHUB_OUTPUT
-
-      - name: Give response
-        if: ${{ ! steps.check_name.outputs.* }}
+      - run: grep -q Luca README.md | COMMAND "check_state=$(cat -)" >> "$GITHUB_ENV"
+      - if: ${{ ! $check_state }}
         run: exit 1
