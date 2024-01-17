@@ -5,4 +5,8 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: grep -q Luca README.md && echo "My name is in the readme, thanks!" || echo "My name is not in the readme... come on! I'll take care of it!"
+      - name: Check name in README
+        if: false == grep -q Luca README.md
+        run: |
+          echo "My name is not in the readme... come on! I'll take care of it!"
+          exit 1
