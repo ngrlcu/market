@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Check name in README
         run: boolean=$(grep -q Luca README.md)
-        if: ${{ !boolean }}
+        if: ${{ boolean == false }}
         run: |
           echo "My name is not in the readme... come on! I'll take care of it!"
           exit 1
