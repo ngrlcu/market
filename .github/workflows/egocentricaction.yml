@@ -7,3 +7,4 @@ jobs:
     steps:
       - run: echo "check_state=$( grep -q Luca README.md && echo "Well done" || exit 1"
       - if: ${{ success() }}
+        run: echo "Done"
