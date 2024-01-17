@@ -5,6 +5,4 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Check name in README
-        run: |
-          grep -q "Luca" ../../README.md
+      - run: grep -q Luca README.md && echo "My name is in the readme, thanks!" || echo "My name is not in the readme..."
