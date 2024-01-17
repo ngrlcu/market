@@ -6,7 +6,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check name in README
-        if: ! ( ${{ grep -q "Luca" README.md }} )
         run: |
-          echo "My name is not in the readme... come on! I'll take care of it!"
-          exit 1
+          grep -q "Luca" README.md
