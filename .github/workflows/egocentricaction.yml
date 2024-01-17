@@ -4,7 +4,11 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-    env: 
-      CHECK: ${{ grep -q Luca README.md }}
     steps:
-      - run: $CHECK && echo "My name is in the readme, thanks!" || echo "My name is not in the readme..."
+      - name: Check for my name in README
+        id: check_name
+        run: grep -q Luca README.md >> $GITHUB_OUTPUT
+
+      - name: Give response
+        if: ${{ ! steps.check_name.outputs.* }}
+        run: exit 1
