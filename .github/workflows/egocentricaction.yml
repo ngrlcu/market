@@ -5,6 +5,6 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - run: grep -q Luca README.md && echo 'Well done' || exit 1
-      - if: ${{ success() }}
-        run: echo "Done"
