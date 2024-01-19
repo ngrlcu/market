@@ -1,4 +1,4 @@
-import src.market.market as mk
+import market.market as mk
 
 def test_evolve():
     hist = mk.evolve(0, 100)
