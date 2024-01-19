@@ -47,10 +47,10 @@ def evolve(init_state, n_iters):
 def count_states(history):
     return dict((s, history.count(s)) for s in states)
 
-def market_analysis(show_plot=False):
+def market_analysis(show_plot=False, seed=42):
     df = pd.DataFrame(columns=["Iter", "Bull", "Bear", "Stagnant"])
 
-    random.seed(42)
+    random.seed(seed)
 
     iterations = np.logspace(1, 6, 100, dtype=int)
     for iter in tqdm(iterations):
